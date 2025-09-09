@@ -8,7 +8,7 @@ import Register from "../pages/Register";
 import Dashboard from "../pages/Dashboard";
 import Profile from "../pages/Profile";
 import SlangInfo from "../pages/SlangInfo";
-
+import LandingPage from '../pages/Landing';
 
 // API Configuration
 const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
@@ -54,12 +54,14 @@ const App = () => {
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
             
+            
             {/* Protected Routes */}
             <Route path="/dashboard" element={
               <ProtectedRoute>
                 <Dashboard />
               </ProtectedRoute>
             } />
+            
             <Route path="/profile" element={
               <ProtectedRoute>
                 <Profile />
@@ -72,7 +74,7 @@ const App = () => {
             } />
             
             {/* Default redirect */}
-            <Route path="/" element={<Navigate to="/dashboard" />} />
+            <Route path="/" element={<LandingPage />} />
           </Routes>
         </div>
       </Router>

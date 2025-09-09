@@ -20,7 +20,7 @@ const Navigation = () => {
         <div className="flex justify-between h-16">
           <div className="flex items-center space-x-8">
             <Link to="/dashboard" className="text-2xl font-bold bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent">
-              SlangDict
+              Slangopedia
             </Link>
             <div className="hidden md:flex space-x-6">
               <Link to="/dashboard" className="text-gray-700 hover:text-purple-600 px-3 py-2 rounded-md text-sm font-medium transition-colors">

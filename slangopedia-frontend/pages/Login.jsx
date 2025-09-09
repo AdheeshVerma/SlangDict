@@ -49,7 +49,7 @@ const Login= () => {
       <div className="max-w-md w-full space-y-8">
         <div className="text-center">
           <h2 className="mt-6 text-4xl font-bold bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent">
-            SlangDict
+            Slangopedia
           </h2>
           <p className="mt-2 text-sm text-gray-600">Sign in to your account</p>
         </div>
