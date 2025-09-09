@@ -106,11 +106,11 @@ const SlangInfo = () => {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-50 to-blue-50">
+    <div className="min-h-screen bg-gradient-to-br from-purple-900 via-blue-900 to-indigo-900">
       <Navigation />
       
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        <Link to="/dashboard" className="text-purple-600 hover:text-purple-500 mb-6 inline-block">
+        <Link to="/dashboard" className="text-white hover:shadow-2xl shadow-white mb-6 inline-block">
           ← Back to Dashboard
         </Link>
         
