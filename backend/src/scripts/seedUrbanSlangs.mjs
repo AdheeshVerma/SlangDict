@@ -17,7 +17,7 @@ const slangsFilePath = path.join(__dirname, "/cleanSlangs.json");
 // Seed function
 async function seedSlangs() {
   try {
-    const MONGO_URI = "process.env.MONGO_URI";
+    const MONGO_URI = "import.meta.env.MONGO_URI";
     if (!MONGO_URI) {
       throw new Error("❌ Missing MONGO_URI in .env file");
     }
