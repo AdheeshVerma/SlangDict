@@ -68,10 +68,10 @@ const LandingPage = () => {
       <nav className="relative z-50 px-6 py-6">
         <div className="max-w-7xl mx-auto flex items-center justify-between">
           <div className="flex items-center space-x-3">
-            <div className="w-20 h-20 bg-gradient-to-r from-purple-500 to-blue-500 rounded-xl flex items-center justify-center">
+            <div className="w-17 h-17 bg-gradient-to-r from-purple-500 to-blue-500 rounded-xl flex items-center justify-center">
               <img src="/logo.png" alt="" />
             </div>
-            <span className="text-2xl font-bold bg-gradient-to-r from-purple-300 to-blue-300 bg-clip-text text-transparent">
+            <span className="text-3xl font-bold bg-gradient-to-r from-purple-300 to-blue-300 bg-clip-text text-transparent py-2">
               Slangopedia
             </span>
           </div>
@@ -174,7 +174,7 @@ const LandingPage = () => {
       <section id="features" className="relative z-10 px-6 py-32">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-20">
-            <h2 className="text-5xl md:text-6xl font-bold bg-gradient-to-r from-purple-300 to-blue-300 bg-clip-text text-transparent mb-6">
+            <h2 className="text-5xl md:text-6xl font-bold bg-gradient-to-r from-purple-300 to-blue-300 bg-clip-text text-transparent mb-6 py-3">
               Why Slangopedia?
             </h2>
             <p className="text-xl text-gray-300 max-w-3xl mx-auto">
@@ -235,13 +235,11 @@ const LandingPage = () => {
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-6">
               <button className="group bg-gradient-to-r from-purple-500 to-blue-500 hover:from-purple-600 hover:to-blue-600 text-white px-10 py-4 rounded-full text-xl font-semibold transition-all duration-300 hover:scale-105 hover:shadow-2xl flex items-center space-x-2">
-                <span>Join Slangopedia</span>
+                <Link to={'/login'}>
+                <span>Join Slangopedia</span></Link>
                 <ChevronRight className="w-6 h-6 group-hover:translate-x-1 transition-transform" />
               </button>
-              <button className="group text-white hover:text-purple-300 transition-colors flex items-center space-x-2">
-                <span className="text-lg">Learn more</span>
-                <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-              </button>
+              
             </div>
           </div>
         </div>
