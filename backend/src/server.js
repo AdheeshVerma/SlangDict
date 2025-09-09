@@ -19,7 +19,7 @@ app.use('/api/slang',require('./routes/slang.routes'));
 app.get('/',(req,res)=>res.send("SlangoPedia is UP🚀"));
 
 app.use(require('./middleware/errorHandler'));
-const PORT  = import.meta.env.PORT;
+const PORT  = process.env.PORT;
 app.listen(PORT,()=>{
     console.log(`Server Running on PORT ${PORT}`)
 })

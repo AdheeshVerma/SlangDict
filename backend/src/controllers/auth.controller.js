@@ -14,7 +14,7 @@ exports.register = async (req,res,next)=>{
         const user = new User({username, email, password});
         await user.save();
 
-        const token = jwt.sign({id:user._id},import.meta.env.JWT_SECRET,{expiresIn:import.meta.env.JWT_EXPIRES_IN});
+        const token = jwt.sign({id:user._id},process.env.JWT_SECRET,{expiresIn:process.env.JWT_EXPIRES_IN});
         res.status(201).json({token, user:{id:user._id,username:user.username,email: user.email}})
     }
     catch(err){next(err);}
@@ -29,7 +29,7 @@ console.log("Entered password:", password);
 
         if(!user || !(await user.comparePassword(password))) return res.status(400).json({msg:"Invalid Credentials"});
 
-        const token = jwt.sign({id:user._id},import.meta.env.JWT_SECRET,{expiresIn:import.meta.env.JWT_EXPIRES_IN});
+        const token = jwt.sign({id:user._id},process.env.JWT_SECRET,{expiresIn:process.env.JWT_EXPIRES_IN});
         res.json({token, user:{id:user._id,username:user.username,email: user.email}})
     }
     catch(err){next(err);}
