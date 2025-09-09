@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { ChevronRight, BookOpen, Users, Zap, Star, Search, TrendingUp, Globe, Sparkles, ArrowRight, Menu, X } from 'lucide-react';
-
+import { Link } from 'react-router-dom';
 const LandingPage = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [currentSlang, setCurrentSlang] = useState(0);
 
-  // Sample trending slangs for the hero section
+  // trending
   const trendingSlangs = [
     { word: "Slay", meaning: "To do something exceptionally well", emoji: "👑" },
     { word: "Ghosting", meaning: "Suddenly cutting off all communication", emoji: "👻" },
@@ -14,7 +14,7 @@ const LandingPage = () => {
     { word: "Vibe Check", meaning: "Assessing someone's mood or energy", emoji: "✨" }
   ];
 
-  // Auto-cycle through trending slangs
+//  loop through diff slangs
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentSlang((prev) => (prev + 1) % trendingSlangs.length);
@@ -52,41 +52,42 @@ const LandingPage = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-purple-900 via-blue-900 to-indigo-900 relative overflow-hidden">
-      {/* Floating Background Elements */}
+      {/* Floating Elements */}
       <FloatingEmoji emoji="🔥" className="top-20 left-10 animate-pulse" />
       <FloatingEmoji emoji="💯" className="top-32 right-16 animation-delay-1000" />
       <FloatingEmoji emoji="✨" className="top-96 left-32 animation-delay-2000" />
       <FloatingEmoji emoji="🚀" className="top-64 right-32 animation-delay-3000" />
       <FloatingEmoji emoji="💫" className="bottom-32 left-16 animation-delay-4000" />
 
-      {/* Animated Background Blobs */}
+      {/* Animated Blobs */}
       <div className="absolute top-0 left-0 w-96 h-96 bg-purple-500/20 rounded-full mix-blend-multiply filter blur-xl animate-pulse"></div>
       <div className="absolute top-32 right-0 w-96 h-96 bg-blue-500/20 rounded-full mix-blend-multiply filter blur-xl animate-pulse animation-delay-2000"></div>
       <div className="absolute bottom-0 left-32 w-96 h-96 bg-indigo-500/20 rounded-full mix-blend-multiply filter blur-xl animate-pulse animation-delay-4000"></div>
 
-      {/* Navigation */}
+      {/* nav */}
       <nav className="relative z-50 px-6 py-6">
         <div className="max-w-7xl mx-auto flex items-center justify-between">
           <div className="flex items-center space-x-3">
-            <div className="w-10 h-10 bg-gradient-to-r from-purple-500 to-blue-500 rounded-xl flex items-center justify-center">
-              <BookOpen className="w-6 h-6 text-white" />
+            <div className="w-20 h-20 bg-gradient-to-r from-purple-500 to-blue-500 rounded-xl flex items-center justify-center">
+              <img src="/logo.png" alt="" />
             </div>
             <span className="text-2xl font-bold bg-gradient-to-r from-purple-300 to-blue-300 bg-clip-text text-transparent">
               Slangopedia
             </span>
           </div>
 
-          {/* Desktop Navigation */}
+          {/* links*/}
           <div className="hidden md:flex items-center space-x-8">
             <a href="#features" className="text-gray-300 hover:text-white transition-colors">Features</a>
             <a href="#about" className="text-gray-300 hover:text-white transition-colors">About</a>
             <a href="#community" className="text-gray-300 hover:text-white transition-colors">Community</a>
+            <Link to={'/login'}>
             <button className="bg-gradient-to-r from-purple-500 to-blue-500 hover:from-purple-600 hover:to-blue-600 text-white px-6 py-2 rounded-full transition-all duration-300 hover:scale-105 hover:shadow-lg">
               Get Started
             </button>
+            </Link>
           </div>
 
-          {/* Mobile Menu Button */}
           <button 
             className="md:hidden text-white"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
@@ -110,25 +111,20 @@ const LandingPage = () => {
         )}
       </nav>
 
-      {/* Hero Section */}
       <main className="relative z-10 px-6 pt-20 pb-32">
         <div className="max-w-7xl mx-auto">
           <div className="text-center max-w-4xl mx-auto">
-            {/* Hero Badge */}
+            
             <div className="inline-flex items-center space-x-2 bg-white/10 backdrop-blur-lg border border-white/20 rounded-full px-6 py-3 mb-8 hover:bg-white/15 transition-all duration-300">
               <Sparkles className="w-5 h-5 text-yellow-400" />
               <span className="text-white font-medium">The Ultimate Slang Dictionary</span>
               <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
             </div>
 
-            {/* Main Hero Text */}
             <h1 className="text-6xl md:text-8xl font-black mb-8">
-              <span className="block bg-gradient-to-r from-purple-300 via-blue-300 to-indigo-300 bg-clip-text text-transparent">
-                Stay
-              </span>
-              <span className="block bg-gradient-to-r from-blue-300 via-indigo-300 to-purple-300 bg-clip-text text-transparent">
-                Current
-              </span>
+              <span className="bg-gradient-to-r from-purple-300 via-blue-300 to-indigo-300 bg-clip-text text-transparent">
+  Stay Current
+</span>
             </h1>
 
             <p className="text-xl md:text-2xl text-gray-300 mb-12 leading-relaxed max-w-2xl mx-auto">
@@ -136,7 +132,7 @@ const LandingPage = () => {
               From Gen Z to internet culture, we've got you covered.
             </p>
 
-            {/* Trending Slang Display */}
+            {/* Trending Slang */}
             <div className="bg-white/10 backdrop-blur-lg border border-white/20 rounded-2xl p-8 mb-12 max-w-md mx-auto">
               <div className="text-sm text-purple-300 mb-2 flex items-center justify-center space-x-2">
                 <TrendingUp className="w-4 h-4" />
@@ -149,11 +145,11 @@ const LandingPage = () => {
 
             {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-6">
-              <button className="group bg-gradient-to-r from-purple-500 to-blue-500 hover:from-purple-600 hover:to-blue-600 text-white px-8 py-4 rounded-full text-lg font-semibold transition-all duration-300 hover:scale-105 hover:shadow-2xl flex items-center space-x-2">
+              <button className="group bg-gradient-to-r from-purple-500 to-blue-500 hover:from-purple-600 hover:to-blue-600 hover:cursor-pointer text-white px-8 py-4 rounded-full text-lg font-semibold transition-all duration-300 hover:scale-105 hover:shadow-2xl flex items-center space-x-2">
                 <span>Explore Slangs</span>
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </button>
-              <button className="group bg-white/10 backdrop-blur-lg border border-white/20 hover:bg-white/15 text-white px-8 py-4 rounded-full text-lg font-semibold transition-all duration-300 hover:scale-105 flex items-center space-x-2">
+              <button className="group bg-white/10 backdrop-blur-lg border border-white/20 hover:bg-white/15 hover:cursor-pointer text-white px-8 py-4 rounded-full text-lg font-semibold transition-all duration-300 hover:scale-105 flex items-center space-x-2">
                 <Search className="w-5 h-5" />
                 <span>Search Dictionary</span>
               </button>
@@ -162,7 +158,7 @@ const LandingPage = () => {
         </div>
       </main>
 
-      {/* Stats Section */}
+      {/* Stats */}
       <section className="relative z-10 px-6 py-20 border-t border-white/10">
         <div className="max-w-6xl mx-auto">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">

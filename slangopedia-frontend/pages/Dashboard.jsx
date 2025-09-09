@@ -6,15 +6,14 @@ import axios from 'axios';
 
 import { useAuth } from "../src/context/AuthContext"; 
 
-// API Configuration
+// api
 const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
 
-// Create axios instance
 const api = axios.create({
   baseURL: API_BASE_URL,
 });
 
-// Add request interceptor to include JWT token
+// use JWT token
 api.interceptors.request.use((config) => {
   const token = localStorage.getItem('token');
   if (token) {
@@ -23,7 +22,6 @@ api.interceptors.request.use((config) => {
   return config;
 });
 
-// Dashboard Page
 const Dashboard = () => {
   const { user } = useAuth();
   const [slangs, setSlangs] = useState([]);
@@ -74,7 +72,6 @@ const Dashboard = () => {
       <Navigation />
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        {/* Welcome Section */}
         <div className="text-center mb-8">
           <h1 className="text-4xl font-bold text-gray-900 mb-2">
             Welcome back, {user?.username}!

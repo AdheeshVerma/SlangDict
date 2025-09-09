@@ -20,6 +20,12 @@ api.interceptors.request.use((config) => {
   return config;
 });
 
+  const FloatingEmoji = ({ emoji, className }) => (
+    <div className={`absolute text-4xl opacity-20 animate-bounce ${className}`}>
+      {emoji}
+    </div>
+  );
+
 const Login= () => {
     console.log("login reached")
   const [formData, setFormData] = useState({ email: '', password: '' });
@@ -45,13 +51,25 @@ const Login= () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-50 to-blue-50 flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
+    <div className="min-h-screen bg-gradient-to-br from-purple-900 via-blue-900 to-indigo-900 relative overflow-hidden flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-md w-full space-y-8">
+      <FloatingEmoji emoji="🔥" className="top-20 left-10 animate-pulse" />
+      <FloatingEmoji emoji="💯" className="top-32 right-16 animation-delay-1000" />
+      <FloatingEmoji emoji="✨" className="top-96 left-32 animation-delay-2000" />
+      <FloatingEmoji emoji="🚀" className="top-64 right-32 animation-delay-3000" />
+      <FloatingEmoji emoji="💫" className="bottom-32 left-16 animation-delay-4000" />
+      <FloatingEmoji emoji="☠️" className="bottom-40 right-32 animation-delay-4000" />
+      <FloatingEmoji emoji="💔" className="bottom-2 right-16 animation-delay-4000" />
+
+      {/* Animated Background Blobs */}
+      <div className="absolute top-0 left-0 w-96 h-96 bg-white rounded-full mix-blend-multiply filter blur-xl animate-pulse"></div>
+      <div className="absolute top-32 right-0 w-96 h-96 bg-blue-500/20 rounded-full mix-blend-multiply filter blur-xl animate-pulse animation-delay-2000"></div>
+      <div className="absolute bottom-0 left-32 w-96 h-96 bg-indigo-500/20 rounded-full mix-blend-multiply filter blur-xl animate-pulse animation-delay-4000"></div>
         <div className="text-center">
-          <h2 className="mt-6 text-4xl font-bold bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent">
-            Slangopedia
-          </h2>
-          <p className="mt-2 text-sm text-gray-600">Sign in to your account</p>
+          <span className="text-4xl font-bold bg-gradient-to-r from-purple-300 to-blue-300 bg-clip-text text-transparent">
+              Slangopedia
+            </span>
+          <p className="mt-2 text-sm text-white">Sign in to your account</p>
         </div>
         
         <form className="mt-8 space-y-6 bg-white p-8 rounded-xl shadow-lg" onSubmit={handleSubmit}>
@@ -97,14 +115,14 @@ const Login= () => {
             <button
               type="submit"
               disabled={loading}
-              className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-lg text-white bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-500 disabled:opacity-50"
+              className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-lg text-white bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:cursor-pointer hover:to-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-500 disabled:opacity-50"
             >
               {loading ? 'Signing in...' : 'Sign in'}
             </button>
           </div>
           
           <div className="text-center">
-            <Link to="/register" className="text-purple-600 hover:text-purple-500 text-sm">
+            <Link to="/register" className="text-purple-600 hover:cursor-pointer hover:text-purple-500 text-sm">
               Don't have an account? Sign up
             </Link>
           </div>
